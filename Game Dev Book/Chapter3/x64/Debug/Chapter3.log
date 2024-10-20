@@ -1,0 +1,22 @@
+﻿  Actor.cpp
+  AnimSpriteComponent.cpp
+C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter3\AnimSpriteComponent.cpp(14,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter3\AnimSpriteComponent.cpp(30,42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter3\AnimSpriteComponent.cpp(45,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter3\AnimSpriteComponent.cpp(48,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Asteroid.cpp
+  BGSpriteComponent.cpp
+  CircleComponent.cpp
+  Component.cpp
+  Game.cpp
+  Laser.cpp
+  Main.cpp
+  Math.cpp
+  MoveComponent.cpp
+  Random.cpp
+  InputComponent.cpp
+  Ship.cpp
+  SpriteComponent.cpp
+  TileMapComponent.cpp
+  Generating Code...
+  Chapter3.vcxproj -> C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter3\x64\Debug\Chapter3.exe

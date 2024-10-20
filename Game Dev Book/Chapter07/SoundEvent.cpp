@@ -1,0 +1,152 @@
+#include "SoundEvent.hpp"
+#include "AudioSystem.hpp"
+#include "Math.hpp"
+#include <fmod_studio.hpp>
+
+namespace {
+	FMOD_VECTOR VecToFMOD(const Vector3& in) {
+		// convert from our coordinates (+x forward, +y right, +z up) to FMOD
+		// (+z forward, +x right, +y up)
+		FMOD_VECTOR v;
+		v.x = in.y;
+		v.y = in.z;
+		v.z = in.x;
+		return v;
+	}
+}
+
+SoundEvent::SoundEvent() {
+	mSystem = nullptr;
+	mID = 0;
+}
+
+SoundEvent::SoundEvent(AudioSystem* system, unsigned int id) {
+	mSystem = system;
+	mID = id;
+}
+
+SoundEvent::~SoundEvent() {
+}
+
+bool SoundEvent::IsValid() {
+	return (mSystem && mSystem->GetEventInstance(mID) != nullptr);
+}
+
+void SoundEvent::Restart() {
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		event->start();
+	}
+}
+
+void SoundEvent::Stop(bool allowFadeOut) {
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		FMOD_STUDIO_STOP_MODE mode = allowFadeOut ?
+			FMOD_STUDIO_STOP_ALLOWFADEOUT :
+			FMOD_STUDIO_STOP_IMMEDIATE;
+		event->stop(mode);
+	}
+}
+
+bool SoundEvent::Is3D() const {
+	bool retVal = false;
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		// get the event description
+		FMOD::Studio::EventDescription* ed = nullptr;
+		event->getDescription(&ed);
+		if (ed) {
+			ed->is3D(&retVal);  // is this 3D?
+		}
+	}
+
+	return retVal;
+}
+
+void SoundEvent::Set3DAttributes(const Matrix4& worldTrans, const Vector3& velocity, const Vector3& virtualPos,
+	bool isThirdPerson) {
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		FMOD_3D_ATTRIBUTES attr;
+		// set position, forward, up
+		if (!isThirdPerson) {
+			attr.position = VecToFMOD(worldTrans.GetTranslation());
+		}
+		else {
+			attr.position = VecToFMOD(virtualPos);
+		}
+		// in world transform, first row is forward
+		attr.forward = VecToFMOD(worldTrans.GetXAxis());
+		// third row is up
+		attr.up = VecToFMOD(worldTrans.GetZAxis());
+		// set velocity to zero (fix if using Doppler effect)
+		//attr.velocity = { 0.0f, 0.0f, 0.0f };
+		attr.velocity = VecToFMOD(velocity);
+		event->set3DAttributes(&attr);
+	}
+}
+
+void SoundEvent::SetPaused(bool pause) {
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		event->setPaused(pause);
+	}
+}
+
+void SoundEvent::SetVolume(float value) {
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		event->setVolume(value);
+	}
+}
+
+void SoundEvent::SetPitch(float value) {
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		event->setPitch(value);
+	}
+}
+
+void SoundEvent::SetParameter(const std::string& name, float value) {
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		event->setParameterValue(name.c_str(), value);
+	}
+}
+
+bool SoundEvent::GetPaused() const {
+	bool retVal = false;
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		event->getPaused(&retVal);
+	}
+	return retVal;
+}
+
+float SoundEvent::GetVolume() const {
+	float retVal = 0.0f;
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		event->getVolume(&retVal);
+	}
+	return retVal;
+}
+
+float SoundEvent::GetPitch() const {
+	float retVal = 0.0f;
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		event->getPitch(&retVal);
+	}
+	return retVal;
+}
+
+float SoundEvent::GetParameter(const std::string& name) {
+	float retVal = 0.0f;
+	auto event = mSystem ? mSystem->GetEventInstance(mID) : nullptr;
+	if (event) {
+		event->getParameterValue(name.c_str(), &retVal);
+	}
+	return retVal;
+}

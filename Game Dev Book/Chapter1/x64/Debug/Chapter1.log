@@ -1,0 +1,8 @@
+﻿  Game.cpp
+C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter1\Game.cpp(8,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter1\Game.cpp(10,34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter1\Game.cpp(211,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter1\Game.cpp(219,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Main.cpp
+  Generating Code...
+  Chapter1.vcxproj -> C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter1\x64\Debug\Chapter1.exe

@@ -1,0 +1,29 @@
+﻿  Actor.cpp
+  AIAttack.cpp
+  AIComponent.cpp
+  AIDeath.cpp
+  AIEnemyDeathState.cpp
+  AIEnemyMoveState.cpp
+  AIPatrol.cpp
+  AITowerFireState.cpp
+  AITowerRestState.cpp
+  Bullet.cpp
+  CircleComponent.cpp
+  Component.cpp
+  Enemy.cpp
+  Game.cpp
+  GameTree.cpp
+  Grid.cpp
+  Main.cpp
+  Math.cpp
+  MoveComponent.cpp
+  NavComponent.cpp
+  Generating Code...
+  Compiling...
+  Pathfinder.cpp
+  Random.cpp
+  SpriteComponent.cpp
+  Tile.cpp
+  Tower.cpp
+  Generating Code...
+  Chapter4.vcxproj -> C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter4\x64\Debug\Chapter4.exe

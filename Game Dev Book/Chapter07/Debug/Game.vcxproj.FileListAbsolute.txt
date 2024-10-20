@@ -1,0 +1,2 @@
+C:\Users\tanwe\Downloads\templatecode\code-master\Chapter07\Debug\Game.exe
+C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter07\Debug\Game.exe

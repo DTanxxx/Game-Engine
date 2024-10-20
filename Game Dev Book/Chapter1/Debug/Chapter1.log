@@ -1,0 +1,17 @@
+﻿  Game.cpp
+  Main.cpp
+  Generating Code...
+Game.obj : error LNK2019: unresolved external symbol _SDL_GetError referenced in function "public: bool __thiscall Game::Initialize(void)" (?Initialize@Game@@QAE_NXZ)
+Game.obj : error LNK2019: unresolved external symbol _SDL_CreateWindow referenced in function "public: bool __thiscall Game::Initialize(void)" (?Initialize@Game@@QAE_NXZ)
+Game.obj : error LNK2019: unresolved external symbol _SDL_DestroyWindow referenced in function "public: void __thiscall Game::ShutDown(void)" (?ShutDown@Game@@QAEXXZ)
+Game.obj : error LNK2019: unresolved external symbol _SDL_Log referenced in function "public: bool __thiscall Game::Initialize(void)" (?Initialize@Game@@QAE_NXZ)
+Game.obj : error LNK2019: unresolved external symbol _SDL_Init referenced in function "public: bool __thiscall Game::Initialize(void)" (?Initialize@Game@@QAE_NXZ)
+Game.obj : error LNK2019: unresolved external symbol _SDL_Quit referenced in function "public: void __thiscall Game::ShutDown(void)" (?ShutDown@Game@@QAEXXZ)
+Game.obj : error LNK2019: unresolved external symbol "private: void __thiscall Game::ProcessInput(void)" (?ProcessInput@Game@@AAEXXZ) referenced in function "public: void __thiscall Game::RunLoop(void)" (?RunLoop@Game@@QAEXXZ)
+Game.obj : error LNK2019: unresolved external symbol "private: void __thiscall Game::UpdateGame(void)" (?UpdateGame@Game@@AAEXXZ) referenced in function "public: void __thiscall Game::RunLoop(void)" (?RunLoop@Game@@QAEXXZ)
+Game.obj : error LNK2019: unresolved external symbol "private: void __thiscall Game::GenerateOutput(void)" (?GenerateOutput@Game@@AAEXXZ) referenced in function "public: void __thiscall Game::RunLoop(void)" (?RunLoop@Game@@QAEXXZ)
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol _main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\tanwe\Desktop\sdl2 learn\SDL2\lib\x64\SDL2.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Users\tanwe\Desktop\sdl2 learn\SDL2\lib\x64\SDL2main.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Users\tanwe\Desktop\sdl2 learn\SDL2_image-2.0.1\lib\x64\SDL2_image.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Users\tanwe\Desktop\sdl2 learn\Game Dev Book\Chapter1\Debug\Chapter1.exe : fatal error LNK1120: 10 unresolved externals
